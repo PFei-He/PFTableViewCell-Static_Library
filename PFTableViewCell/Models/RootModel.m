@@ -61,6 +61,7 @@
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"images.bundle/cell_even_background" ofType:@"jpg"]]];
         
         //设置内容页
+        cell.firstContentViewShow = YES;
         cell.firstContentView.frame = CGRectMake(0, 45, 320, 30);
         cell.firstContentView.backgroundColor = [UIColor cyanColor];
         
