@@ -59,11 +59,11 @@ extern BOOL PFTableViewCellReload;
 
 #pragma mark - View
 
-///内容页
-@property (nonatomic, strong)           UIView          *firstContentView;
+///是否显示内容页
+@property (nonatomic, assign)           BOOL            firstContentViewShow;
 
-///内容页尺寸
-@property (nonatomic, assign)           CGRect          firstContentViewFrame;
+///内容页
+@property (nonatomic, strong, readonly) UIView          *firstContentView;
 
 #pragma mark -
 
@@ -73,7 +73,7 @@ extern BOOL PFTableViewCellReload;
 ///分割线尺寸
 @property (nonatomic, assign)           CGRect          lineFrame;
 
-///分割线颜色（默认为浅灰色）
+///分割线颜色
 @property (nonatomic, strong)           UIColor         *lineColor;
 
 #pragma mark - Button
@@ -84,15 +84,6 @@ extern BOOL PFTableViewCellReload;
 ///自定义按钮类型
 @property (nonatomic, assign)           UIButtonType    firstButtonType;
 
-///自定义按钮的尺寸
-@property (nonatomic, assign)           CGRect          firstButtonFrame;
-
-///自定义按钮的标题
-@property (nonatomic, copy)             NSString        *firstButtonTitle;
-
-///自定义按钮的图片
-@property (nonatomic, strong)           UIImage         *firstButtonImage;
-
 #pragma mark -
 
 ///自定义按钮
@@ -101,15 +92,6 @@ extern BOOL PFTableViewCellReload;
 ///自定义按钮类型
 @property (nonatomic, assign)           UIButtonType    secondButtonType;
 
-///自定义按钮的尺寸
-@property (nonatomic, assign)           CGRect          secondButtonFrame;
-
-///自定义按钮的标题
-@property (nonatomic, copy)             NSString        *secondButtonTitle;
-
-///自定义按钮的图片
-@property (nonatomic, strong)           UIImage         *secondButtonImage;
-
 #pragma mark - Image
 
 ///是否显示自定义图片
@@ -117,12 +99,6 @@ extern BOOL PFTableViewCellReload;
 
 ///自定义图片视图
 @property (nonatomic, strong, readonly) UIImageView     *firstImageView;
-
-///自定义图片的尺寸
-@property (nonatomic, assign)           CGRect          firstImageViewFrame;
-
-///自定义图片
-@property (nonatomic, strong)           UIImage         *firstImage;
 
 ///是否打开自定义图片的用户交互
 @property (nonatomic, assign)           BOOL            firstImageViewUserInteractionEnabled;
@@ -135,12 +111,6 @@ extern BOOL PFTableViewCellReload;
 ///自定义图片视图
 @property (nonatomic, strong, readonly) UIImageView     *secondImageView;
 
-///自定义图片的尺寸
-@property (nonatomic, assign)           CGRect          secondImageViewFrame;
-
-///自定义图片
-@property (nonatomic, strong)           UIImage         *secondImage;
-
 ///是否打开自定义图片的用户交互
 @property (nonatomic, assign)           BOOL            secondImageViewUserInteractionEnabled;
 
@@ -152,15 +122,6 @@ extern BOOL PFTableViewCellReload;
 ///自定义文字视图
 @property (nonatomic, strong, readonly) UILabel         *firstTextLabel;
 
-///自定义文本视图的尺寸
-@property (nonatomic, assign)           CGRect          firstTextLabelFrame;
-
-///自定义文本的文字
-@property (nonatomic, copy)             NSString        *firstText;
-
-///自定义文本的字体
-@property (nonatomic, strong)           UIFont          *firstFont;
-
 #pragma mark -
 
 ///是否显示自定义文本
@@ -168,15 +129,6 @@ extern BOOL PFTableViewCellReload;
 
 ///自定义文字视图
 @property (nonatomic, strong, readonly) UILabel         *secondTextLabel;
-
-///自定义文本视图的尺寸
-@property (nonatomic, assign)           CGRect          secondTextLabelFrame;
-
-///自定义文本的文字
-@property (nonatomic, copy)             NSString        *secondText;
-
-///自定义文本的字体
-@property (nonatomic, strong)           UIFont          *secondFont;
 
 #pragma mark - Methods
 
@@ -247,14 +199,14 @@ extern BOOL PFTableViewCellReload;
 /**
  *  @brief 按钮点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
  */
 - (void)buttonDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
 /**
  *  @brief 图片点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
  */
 - (void)imageViewDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 

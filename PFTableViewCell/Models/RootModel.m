@@ -61,12 +61,12 @@
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"images.bundle/cell_even_background" ofType:@"jpg"]]];
         
         //设置内容页
-        cell.firstContentViewFrame = CGRectMake(0, 45, 320, 30);
+        cell.firstContentView.frame = CGRectMake(0, 45, 320, 30);
         cell.firstContentView.backgroundColor = [UIColor cyanColor];
         
         //设置图片
         cell.firstImageViewShow = YES;
-        cell.firstImageViewFrame = CGRectMake(5, 15, 60, 60);
+        cell.firstImageView.frame = CGRectMake(5, 15, 60, 60);
         cell.firstImageViewUserInteractionEnabled = YES;
         [cell setRoundedImageView:cell.firstImageView];
         [cell imageViewDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
@@ -82,7 +82,7 @@
         
         //设置按钮
         cell.firstButtonType = UIButtonTypeSystem;
-        cell.firstButtonTitle = @"更多";
+        [cell.firstButton setTitle:@"更多" forState:UIControlStateNormal];
         [cell buttonDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
@@ -138,10 +138,10 @@
     cell.indexPath = indexPath;
     
     //设置按钮
-    cell.firstButtonFrame = CGRectMake(cell.bounds.size.width - 65, cell.bounds.size.height - 35, 60, 30);
+    cell.firstButton.frame = CGRectMake(cell.bounds.size.width - 65, cell.bounds.size.height - 35, 60, 30);
  
     //设置图片
-    cell.firstImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", self.imageArray[indexPath.row / 2]] ofType:@"png"]];
+    cell.firstImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", self.imageArray[indexPath.row / 2]] ofType:@"png"]];
     
     //设置分割线
     cell.lineFrame = CGRectMake(0, cell.bounds.size.height - 1, cell.bounds.size.width, 1.0f);
