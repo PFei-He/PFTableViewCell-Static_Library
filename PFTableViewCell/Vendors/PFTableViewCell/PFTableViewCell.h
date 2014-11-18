@@ -214,11 +214,6 @@ extern BOOL PFTableViewCellReload;
 //+ (void)onsetHeight:(CGFloat)onsetHeight resetHeight:(CGFloat)resetHeight atIndexPath:(NSIndexPath *)indexPath;
 
 /**
- *  @brief 移除指定列表高度
- */
-+ (void)removeHeightSettingsAtIndexPath:(NSIndexPath *)indexPath;
-
-/**
  *  @brief 移除高度设置
  *  @warning 请在`- (void)dealloc{}`方法使用
  */
