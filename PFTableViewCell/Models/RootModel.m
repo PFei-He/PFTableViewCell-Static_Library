@@ -59,12 +59,12 @@
     if (indexPath.row %2 == 0) {
         //设置背景
         cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"images.bundle/cell_even_background" ofType:@"jpg"]]];
-        
+
         //设置内容页
         cell.firstContentViewShow = YES;
         cell.firstContentView.frame = CGRectMake(0, 45, 320, 30);
         cell.firstContentView.backgroundColor = [UIColor cyanColor];
-        
+
         //设置图片
         cell.firstImageViewShow = YES;
         cell.firstImageView.frame = CGRectMake(5, 15, 60, 60);
@@ -73,7 +73,7 @@
         [cell imageViewDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
-            
+
             //浏览大图
             [PFImageBrowser showImage:tableViewCell.firstImageView];
         }];
@@ -137,13 +137,13 @@
     
     //设置序号
     cell.indexPath = indexPath;
-    
+
     //设置按钮
     cell.firstButton.frame = CGRectMake(cell.bounds.size.width - 65, cell.bounds.size.height - 35, 60, 30);
  
     //设置图片
     cell.firstImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", self.imageArray[indexPath.row / 2]] ofType:@"png"]];
-    
+
     //设置分割线
     cell.lineFrame = CGRectMake(0, cell.bounds.size.height - 1, cell.bounds.size.width, 1.0f);
     
