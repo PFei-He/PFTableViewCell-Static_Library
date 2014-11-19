@@ -22,20 +22,22 @@
 /**
  *  @brief 点击
  *  @param indexPath: 列表序号
+ *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`.useTapGestureRecognizer = YES;`）
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  @brief 按钮点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell buttonDidSelectRowAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
 /**
  *  @brief 图片点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell imageViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
@@ -54,8 +56,8 @@ extern BOOL PFTableViewCellReload;
 ///序号
 @property (nonatomic, strong)           NSIndexPath     *indexPath;
 
-///是否使用自定义手势（默认为关闭）
-@property (nonatomic, assign)           BOOL            useGestureRecognizer;
+///是否使用点击手势（默认为关闭）
+@property (nonatomic, assign)           BOOL            useTapGestureRecognizer;
 
 #pragma mark - View
 
@@ -67,67 +69,69 @@ extern BOOL PFTableViewCellReload;
 
 #pragma mark -
 
+///是否显示内容页
+@property (nonatomic, assign)           BOOL            secondContentViewShow;
+
+///内容页
+@property (nonatomic ,strong, readonly) UIView          *secondContentView;
+
+#pragma mark -
+
 ///是否显示分割线
 @property (nonatomic, assign)           BOOL            lineShow;
 
 ///分割线尺寸
 @property (nonatomic, assign)           CGRect          lineFrame;
 
-///分割线颜色
+///分割线颜色（默认为浅灰色）
 @property (nonatomic, strong)           UIColor         *lineColor;
 
 #pragma mark - Button
 
-///自定义按钮
+///按钮
 @property (nonatomic, strong, readonly) UIButton        *firstButton;
 
-///自定义按钮类型
+///按钮类型
 @property (nonatomic, assign)           UIButtonType    firstButtonType;
 
 #pragma mark -
 
-///自定义按钮
+///按钮
 @property (nonatomic, strong, readonly) UIButton        *secondButton;
 
-///自定义按钮类型
+///按钮类型
 @property (nonatomic, assign)           UIButtonType    secondButtonType;
 
 #pragma mark - Image
 
-///是否显示自定义图片
+///是否显示图片
 @property (nonatomic, assign)           BOOL            firstImageViewShow;
 
-///自定义图片视图
+///图片视图
 @property (nonatomic, strong, readonly) UIImageView     *firstImageView;
-
-///是否打开自定义图片的用户交互
-@property (nonatomic, assign)           BOOL            firstImageViewUserInteractionEnabled;
 
 #pragma mark -
 
-///是否显示自定义图片
+///是否显示图片
 @property (nonatomic, assign)           BOOL            secondImageViewShow;
 
-///自定义图片视图
+///图片视图
 @property (nonatomic, strong, readonly) UIImageView     *secondImageView;
-
-///是否打开自定义图片的用户交互
-@property (nonatomic, assign)           BOOL            secondImageViewUserInteractionEnabled;
 
 #pragma mark - Label
 
-///是否显示自定义文本
+///是否显示文本
 @property (nonatomic, assign)           BOOL            firstTextLabelShow;
 
-///自定义文字视图
+///文本视图
 @property (nonatomic, strong, readonly) UILabel         *firstTextLabel;
 
 #pragma mark -
 
-///是否显示自定义文本
+///是否显示文本
 @property (nonatomic, assign)           BOOL            secondTextLabelShow;
 
-///自定义文字视图
+///文本视图
 @property (nonatomic, strong, readonly) UILabel         *secondTextLabel;
 
 #pragma mark - Methods
@@ -193,20 +197,22 @@ extern BOOL PFTableViewCellReload;
 /**
  *  @brief 点击
  *  @param indexPath: 列表序号
+ *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`.useTapGestureRecognizer = YES;`）
  */
 - (void)didSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath))block;
 
 /**
  *  @brief 按钮点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
  */
 - (void)buttonDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
 /**
  *  @brief 图片点击
  *  @param indexPath: 列表序号
- *  @param controlIndex: 控件序号，1为控件一，2为控件二，3为控件三
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
  */
 - (void)imageViewDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
