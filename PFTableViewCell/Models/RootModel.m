@@ -68,7 +68,7 @@
         //设置图片
         cell.firstImageViewShow = YES;
         cell.firstImageView.frame = CGRectMake(5, 15, 60, 60);
-        cell.firstImageViewUserInteractionEnabled = YES;
+        cell.firstImageView.userInteractionEnabled = YES;
         [cell setRoundedImageView:cell.firstImageView];
         [cell imageViewDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
