@@ -171,7 +171,7 @@ extern BOOL PFTableViewCellReload;
 
 /**
  *  @brief 移除高度设置
- *  @warning 请在`- (void)dealloc{}`方法使用
+ *  @warning 请于列表所在的视图控制器类的`- (void)dealloc{}`方法使用
  */
 + (void)removeAllHeightSettings;
 
