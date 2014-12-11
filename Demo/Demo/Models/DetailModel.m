@@ -1,16 +1,16 @@
 //
-//  RootModel.m
-//  PFTableViewCell
+//  DetailModel.m
+//  Demo
 //
-//  Created by PFei_He on 14-11-15.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Created by PFei_He on 14-12-3.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
 //
 
-#import "RootModel.h"
+#import "DetailModel.h"
 #import "PFTableViewCell.h"
 #import "PFImageBrowser.h"
 
-@interface RootModel ()
+@interface DetailModel ()
 {
     CGFloat cellModelOneHeight; //模型一高度
     CGFloat cellModelTwoHeight; //模型二高度
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation RootModel
+@implementation DetailModel
 
 #pragma mark - Initialization
 
@@ -38,13 +38,13 @@
     if (self) {
         //图片数组
         self.imageArray = imageArray;
-        
+
         //姓名数组
         self.nameArray = nameArray;
-        
+
         //模型一高度
         cellModelOneHeight = 80;
-        
+
         //模型二高度
         cellModelTwoHeight = 200;
     }
@@ -80,14 +80,14 @@
     } else {
         //设置背景
         cell.backgroundColor = [UIColor colorWithRed:255 / 255.0f green:180 / 255.0f blue:190 / 255.0f alpha:1];
-        
+
         //设置按钮
         cell.firstButtonType = UIButtonTypeSystem;
         [cell.firstButton setTitle:@"更多" forState:UIControlStateNormal];
         [cell buttonDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
-            
+
             //刷新列表
             PFTableViewCellReload = YES;
             [PFTableViewCell setHeight:500 atIndexPath:indexPath];
@@ -131,22 +131,22 @@
     if (!cell) {
         CGSize size = CGSizeMake(320, indexPath.row %2 == 0 ? cellModelOneHeight : cellModelTwoHeight);
         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier delegate:nil size:size];
-        
+
         [self setupTableViewCell:cell indexPath:indexPath];
     }
-    
+
     //设置序号
     cell.indexPath = indexPath;
 
     //设置按钮
     cell.firstButton.frame = CGRectMake(cell.bounds.size.width - 65, cell.bounds.size.height - 35, 60, 30);
- 
+
     //设置图片
     cell.firstImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@", self.imageArray[indexPath.row / 2]] ofType:@"png"]];
 
     //设置分割线
     cell.lineFrame = CGRectMake(0, cell.bounds.size.height - 1, cell.bounds.size.width, 1.0f);
-    
+
     return cell;
 }
 
@@ -156,7 +156,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([PFTableViewCell heightAtIndexPath:indexPath]) {
-        
+
         //获取高度
         return [PFTableViewCell heightAtIndexPath:indexPath];
     } else {
@@ -176,14 +176,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击事件已经发生");
-}
-
-#pragma mark - Memory Management
-
-- (void)dealloc
-{
-    //移除高度设定
-    [PFTableViewCell removeAllHeightSettings];
 }
 
 @end

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE51F2651A13540800D84EC0"
-               BuildableName = "PFTableViewCell.app"
-               BlueprintName = "PFTableViewCell"
-               ReferencedContainer = "container:PFTableViewCell.xcodeproj">
+               BlueprintIdentifier = "CE3B909F1A2EA6940052F695"
+               BuildableName = "Demo.app"
+               BlueprintName = "Demo"
+               ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE51F2801A13540800D84EC0"
-               BuildableName = "PFTableViewCellTests.xctest"
-               BlueprintName = "PFTableViewCellTests"
-               ReferencedContainer = "container:PFTableViewCell.xcodeproj">
+               BlueprintIdentifier = "CE3B90BA1A2EA6950052F695"
+               BuildableName = "DemoTests.xctest"
+               BlueprintName = "DemoTests"
+               ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE51F2651A13540800D84EC0"
-            BuildableName = "PFTableViewCell.app"
-            BlueprintName = "PFTableViewCell"
-            ReferencedContainer = "container:PFTableViewCell.xcodeproj">
+            BlueprintIdentifier = "CE3B909F1A2EA6940052F695"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE51F2651A13540800D84EC0"
-            BuildableName = "PFTableViewCell.app"
-            BlueprintName = "PFTableViewCell"
-            ReferencedContainer = "container:PFTableViewCell.xcodeproj">
+            BlueprintIdentifier = "CE3B909F1A2EA6940052F695"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE51F2651A13540800D84EC0"
-            BuildableName = "PFTableViewCell.app"
-            BlueprintName = "PFTableViewCell"
-            ReferencedContainer = "container:PFTableViewCell.xcodeproj">
+            BlueprintIdentifier = "CE3B909F1A2EA6940052F695"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

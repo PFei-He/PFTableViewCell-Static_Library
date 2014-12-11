@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PFTableViewCell.xcscheme</key>
+		<key>Demo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>CE51F2651A13540800D84EC0</key>
+		<key>CE3B909F1A2EA6940052F695</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE51F2801A13540800D84EC0</key>
+		<key>CE3B90BA1A2EA6950052F695</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,19 +1,19 @@
 //
-//  DetailVC.m
-//  PFTableViewCell
+//  RootVC.m
+//  Demo
 //
-//  Created by PFei_He on 14-11-12.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Created by PFei_He on 14-12-3.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
 //
 
+#import "RootVC.h"
 #import "DetailVC.h"
-#import "PFTableViewCell.h"
 
-@interface DetailVC () <UITableViewDelegate>
+@interface RootVC ()
 
 @end
 
-@implementation DetailVC
+@implementation RootVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,17 +24,25 @@
     return self;
 }
 
-#pragma mark - Views Management
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.title = @"细节";
+    self.title = @"1";
     self.view.backgroundColor = [UIColor whiteColor];
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(120, 100, 80, 30);
+    [button setTitle:@"点击" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonTouch) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
-#pragma mark - Memory Management
+- (void)buttonTouch
+{
+    DetailVC *detail = [[DetailVC alloc] init];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

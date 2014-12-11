@@ -1,14 +1,14 @@
 //
-//  RootModel.h
-//  PFTableViewCell
+//  DetailModel.h
+//  Demo
 //
-//  Created by PFei_He on 14-11-15.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Created by PFei_He on 14-12-3.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface RootModel : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface DetailModel : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 /**
  *  @brief 初始化

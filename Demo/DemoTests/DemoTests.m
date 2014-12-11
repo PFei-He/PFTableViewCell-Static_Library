@@ -1,18 +1,18 @@
 //
-//  PFTableViewCellTests.m
-//  PFTableViewCellTests
+//  DemoTests.m
+//  DemoTests
 //
-//  Created by PFei_He on 14-11-12.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Created by PFei_He on 14-12-3.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface PFTableViewCellTests : XCTestCase
+@interface DemoTests : XCTestCase
 
 @end
 
-@implementation PFTableViewCellTests
+@implementation DemoTests
 
 - (void)setUp
 {

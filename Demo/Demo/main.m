@@ -1,9 +1,9 @@
 //
 //  main.m
-//  PFTableViewCell
+//  Demo
 //
-//  Created by PFei_He on 14-11-12.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Created by PFei_He on 14-12-3.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
