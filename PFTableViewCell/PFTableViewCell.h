@@ -3,7 +3,11 @@
 //  PFTableViewCell
 //
 //  Created by PFei_He on 14-11-12.
-//  Copyright (c) 2014年 PFei_He. All rights reserved.
+//  Copyright (c) 2014年 PF-Lib. All rights reserved.
+//
+//  https://github.com/PFei-He/PFTableViewCell-Static_Library
+//
+//  vesion: 0.1.1
 //
 
 #import <UIKit/UIKit.h>
@@ -192,7 +196,7 @@ extern BOOL PFTableViewCellReload;
 /**
  *  @brief 加载完成
  */
-- (void)tableViewCellLoadedUsingBlock:(void (^)())block;
+- (void)tableViewCellLoadedUsingBlock:(void (^)(void))block;
 
 /**
  *  @brief 点击
