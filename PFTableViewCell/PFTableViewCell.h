@@ -7,7 +7,7 @@
 //
 //  https://github.com/PFei-He/PFTableViewCell-Static_Library
 //
-//  vesion: 0.2.0
+//  vesion: 0.2.1
 //
 
 #import <UIKit/UIKit.h>
@@ -20,8 +20,9 @@
 
 /**
  *  @brief 加载完成
+ *  @param indexPath: 列表序号
  */
-- (void)tableViewCellLoaded;
+- (void)tableViewCellLoadedAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  @brief 点击
@@ -205,8 +206,9 @@ extern BOOL PFTableViewCellReload;
 
 /**
  *  @brief 加载完成
+ *  @param indexPath: 列表序号
  */
-- (void)tableViewCellLoadedUsingBlock:(void (^)(void))block;
+- (void)tableViewCellLoadedUsingBlock:(void (^)(NSIndexPath *indexPath))block;
 
 /**
  *  @brief 点击
