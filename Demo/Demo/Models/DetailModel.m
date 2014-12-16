@@ -70,7 +70,7 @@
         cell.firstImageView.frame = CGRectMake(5, 15, 60, 60);
         cell.firstImageView.userInteractionEnabled = YES;
         [cell setRoundedImageView:cell.firstImageView];
-        [cell imageViewDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
+        [cell imageViewTouchUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
 
@@ -82,9 +82,10 @@
         cell.backgroundColor = [UIColor colorWithRed:255 / 255.0f green:180 / 255.0f blue:190 / 255.0f alpha:1];
 
         //设置按钮
-        cell.firstButtonType = UIButtonTypeSystem;
+        cell.firstButtonShow = YES;
         [cell.firstButton setTitle:@"更多" forState:UIControlStateNormal];
-        [cell buttonDidSelectRowAtIndexPathUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
+        [cell.firstButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+        [cell buttonTouchUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
 

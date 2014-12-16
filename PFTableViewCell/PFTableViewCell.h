@@ -7,7 +7,7 @@
 //
 //  https://github.com/PFei-He/PFTableViewCell-Static_Library
 //
-//  vesion: 0.1.1
+//  vesion: 0.2.0
 //
 
 #import <UIKit/UIKit.h>
@@ -35,7 +35,7 @@
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
  */
-- (void)tableViewCell:(PFTableViewCell *)tableViewCell buttonDidSelectRowAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
+- (void)tableViewCell:(PFTableViewCell *)tableViewCell buttonTouchAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
 /**
  *  @brief 图片点击
@@ -43,7 +43,15 @@
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
  *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
  */
-- (void)tableViewCell:(PFTableViewCell *)tableViewCell imageViewDidSelectRowAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
+- (void)tableViewCell:(PFTableViewCell *)tableViewCell imageViewTouchAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
+
+/**
+ *  @brief 文本点击
+ *  @param indexPath: 列表序号
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ */
+- (void)tableViewCell:(PFTableViewCell *)tableViewCell textLabelTouchAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
 @end
 
@@ -92,19 +100,19 @@ extern BOOL PFTableViewCellReload;
 
 #pragma mark - Button
 
+///是否显示按钮（type: custom）
+@property (nonatomic, assign)           BOOL            firstButtonShow;
+
 ///按钮
 @property (nonatomic, strong, readonly) UIButton        *firstButton;
 
-///按钮类型
-@property (nonatomic, assign)           UIButtonType    firstButtonType;
-
 #pragma mark -
+
+///是否显示按钮（type: custom）
+@property (nonatomic, assign)           BOOL            secondButtonShow;
 
 ///按钮
 @property (nonatomic, strong, readonly) UIButton        *secondButton;
-
-///按钮类型
-@property (nonatomic, assign)           UIButtonType    secondButtonType;
 
 #pragma mark - Image
 
@@ -148,6 +156,20 @@ extern BOOL PFTableViewCellReload;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier delegate:(id<PFTableViewCellDelegate>)delegate size:(CGSize)size;
 
 /**
+ *  @brief 设置圆形图片
+ */
+- (void)setRoundedImageView:(UIImageView *)imageView;
+
+/**
+ *  @brief 设置圆形图片
+ *  @param borderWidth: 边框宽度
+ *  @param borderColor: 边框颜色
+ */
+- (void)setRoundedImageView:(UIImageView *)imageView borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+
+#pragma mark -
+
+/**
  *  @brief 设置总数
  */
 + (void)heightSettingsCount:(NSInteger)count;
@@ -179,18 +201,6 @@ extern BOOL PFTableViewCellReload;
  */
 + (void)removeAllHeightSettings;
 
-/**
- *  @brief 设置圆形图片
- */
-- (void)setRoundedImageView:(UIImageView *)imageView;
-
-/**
- *  @brief 设置圆形图片
- *  @param borderWidth: 边框宽度
- *  @param borderColor: 边框颜色
- */
-- (void)setRoundedImageView:(UIImageView *)imageView borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
-
 #pragma mark -
 
 /**
@@ -203,14 +213,14 @@ extern BOOL PFTableViewCellReload;
  *  @param indexPath: 列表序号
  *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`.useTapGestureRecognizer = YES;`）
  */
-- (void)didSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath))block;
+- (void)didSelectRowUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath))block;
 
 /**
  *  @brief 按钮点击
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
  */
-- (void)buttonDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
+- (void)buttonTouchUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
 /**
  *  @brief 图片点击
@@ -218,6 +228,14 @@ extern BOOL PFTableViewCellReload;
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
  *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
  */
-- (void)imageViewDidSelectRowAtIndexPathUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
+- (void)imageViewTouchUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
+
+/**
+ *  @brief 文本点击
+ *  @param indexPath: 列表序号
+ *  @param controlIndex: 控件序号，1为控件一，2为控件二
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ */
+- (void)textLabelTouchUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
 @end
