@@ -85,6 +85,7 @@
         cell.firstButtonShow = YES;
         [cell.firstButton setTitle:@"更多" forState:UIControlStateNormal];
         [cell.firstButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+        @weakify_self
         [cell buttonTouchUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
@@ -92,7 +93,7 @@
             //刷新列表
             PFTableViewCellReload = YES;
             [PFTableViewCell setHeight:500 atIndexPath:indexPath];
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
     //设置分割线

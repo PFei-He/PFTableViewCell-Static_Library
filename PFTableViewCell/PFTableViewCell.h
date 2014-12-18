@@ -7,10 +7,56 @@
 //
 //  https://github.com/PFei-He/PFTableViewCell-Static_Library
 //
-//  vesion: 0.2.1
+//  vesion: 0.3.0
 //
 
 #import <UIKit/UIKit.h>
+
+/**
+ *  弱引用`self`。用于解决代码块（block）与强引用self之间的循环引用问题
+ *  调用方式: `@weakify_self`实现弱引用转换，而后使用`weakSelf`代替`self`
+ *
+ *  示例:
+ *  @weakify_self
+ *  [obj block:^{
+ *      weakSelf.property = something;
+ *  }];
+ *
+ */
+#ifndef	weakify_self
+    #if __has_feature(objc_arc)
+        #define weakify_self autoreleasepool{} __weak __typeof__(self) weakSelf = self;
+    #else
+        #define weakify_self autoreleasepool{} __block __typeof__(self) blockSelf = self;
+    #endif
+#endif
+
+/**
+ *  弱引用`object`。用于解决代码块（block）与强引用对象之间的循环引用问题
+ *  调用方式: `@weakify`实现弱引用转换，`@normalize`把转换后的对象改回原来的对象名
+ *
+ *  示例:
+ *  @weakify(object)
+ *  [obj block:^{
+ *      @normalize(object)
+ *      object = something;
+ *  }];
+ *
+ */
+#ifndef	weakify
+    #if __has_feature(objc_arc)
+        #define weakify(object)	autoreleasepool{} __weak __typeof__(object) __weak_##x##__ = x;
+    #else
+        #define weakify(object)	autoreleasepool{} __block __typeof__(object) __block_##x##__ = x;
+    #endif
+#endif
+#ifndef	normalize
+    #if __has_feature(objc_arc)
+        #define normalize(object) try{} @finally{} __typeof__(object) x = __weak_##x##__;
+    #else
+        #define normalize(object) try{} @finally{} __typeof__(object) x = __block_##x##__;
+    #endif
+#endif
 
 @class PFTableViewCell;
 
@@ -22,12 +68,12 @@
  *  @brief 加载完成
  *  @param indexPath: 列表序号
  */
-- (void)tableViewCellLoadedAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableViewCell:(PFTableViewCell *)tableViewCell loadedAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  @brief 点击
  *  @param indexPath: 列表序号
- *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`.useTapGestureRecognizer = YES;`）
+ *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`***.useTapGestureRecognizer = YES;`）
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
@@ -42,7 +88,7 @@
  *  @brief 图片点击
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
- *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`***.userInteractionEnabled = YES;`）
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell imageViewTouchAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
@@ -50,7 +96,7 @@
  *  @brief 文本点击
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
- *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`***.userInteractionEnabled = YES;`）
  */
 - (void)tableViewCell:(PFTableViewCell *)tableViewCell textLabelTouchAtIndexPath:(NSIndexPath *)indexPath controlIndex:(NSInteger)controlIndex;
 
@@ -72,7 +118,21 @@ extern BOOL PFTableViewCellReload;
 ///是否使用点击手势（默认为关闭）
 @property (nonatomic, assign)           BOOL            useTapGestureRecognizer;
 
+///是否可以刷新列表（默认为是）
+@property (nonatomic, assign)           BOOL            refreshEnable;
+
 #pragma mark - View
+
+///是否显示分割线
+@property (nonatomic, assign)           BOOL            lineShow;
+
+///分割线尺寸
+@property (nonatomic, assign)           CGRect          lineFrame;
+
+///分割线颜色（默认为浅灰色）
+@property (nonatomic, strong)           UIColor         *lineColor;
+
+#pragma mark -
 
 ///是否显示内容页
 @property (nonatomic, assign)           BOOL            firstContentViewShow;
@@ -87,17 +147,6 @@ extern BOOL PFTableViewCellReload;
 
 ///内容页
 @property (nonatomic ,strong, readonly) UIView          *secondContentView;
-
-#pragma mark -
-
-///是否显示分割线
-@property (nonatomic, assign)           BOOL            lineShow;
-
-///分割线尺寸
-@property (nonatomic, assign)           CGRect          lineFrame;
-
-///分割线颜色（默认为浅灰色）
-@property (nonatomic, strong)           UIColor         *lineColor;
 
 #pragma mark - Button
 
@@ -208,12 +257,12 @@ extern BOOL PFTableViewCellReload;
  *  @brief 加载完成
  *  @param indexPath: 列表序号
  */
-- (void)tableViewCellLoadedUsingBlock:(void (^)(NSIndexPath *indexPath))block;
+- (void)loadedUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath))block;
 
 /**
  *  @brief 点击
  *  @param indexPath: 列表序号
- *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`.useTapGestureRecognizer = YES;`）
+ *  @waring 若要使用此方法，请将列表的点击手势打开（设置属性`***.useTapGestureRecognizer = YES;`）
  */
 - (void)didSelectRowUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath))block;
 
@@ -228,7 +277,7 @@ extern BOOL PFTableViewCellReload;
  *  @brief 图片点击
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
- *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`***.userInteractionEnabled = YES;`）
  */
 - (void)imageViewTouchUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
@@ -236,7 +285,7 @@ extern BOOL PFTableViewCellReload;
  *  @brief 文本点击
  *  @param indexPath: 列表序号
  *  @param controlIndex: 控件序号，1为控件一，2为控件二
- *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`.userInteractionEnabled = YES;`）
+ *  @waring 若要使用此方法，请将视图的用户交互打开（设置属性`***.userInteractionEnabled = YES;`）
  */
 - (void)textLabelTouchUsingBlock:(void (^)(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex))block;
 
