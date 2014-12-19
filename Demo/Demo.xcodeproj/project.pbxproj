@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2BECCC1A43B8230037E48A /* libPFTableViewCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */; };
 		CE3B90A41A2EA6940052F695 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A31A2EA6940052F695 /* Foundation.framework */; };
 		CE3B90A61A2EA6940052F695 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A51A2EA6940052F695 /* CoreGraphics.framework */; };
 		CE3B90A81A2EA6940052F695 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A71A2EA6940052F695 /* UIKit.framework */; };
@@ -25,7 +26,6 @@
 		CE3B90DF1A2EA6F40052F695 /* RootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B90DE1A2EA6F40052F695 /* RootModel.m */; };
 		CE3B90E11A2EA7AE0052F695 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE3B90E01A2EA7AE0052F695 /* images.bundle */; };
 		CE3B90E61A2EA85F0052F695 /* PFImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B90E51A2EA85F0052F695 /* PFImageBrowser.m */; };
-		CE3B90EA1A2EA86A0052F695 /* libPFTableViewCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90E81A2EA86A0052F695 /* libPFTableViewCell.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPFTableViewCell.a; path = All/libPFTableViewCell.a; sourceTree = "<group>"; };
 		CE3B90A01A2EA6940052F695 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3B90A31A2EA6940052F695 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE3B90A51A2EA6940052F695 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,7 +67,6 @@
 		CE3B90E01A2EA7AE0052F695 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 		CE3B90E41A2EA85F0052F695 /* PFImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFImageBrowser.h; sourceTree = "<group>"; };
 		CE3B90E51A2EA85F0052F695 /* PFImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFImageBrowser.m; sourceTree = "<group>"; };
-		CE3B90E81A2EA86A0052F695 /* libPFTableViewCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPFTableViewCell.a; sourceTree = "<group>"; };
 		CE3B90E91A2EA86A0052F695 /* PFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTableViewCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 				CE3B90A61A2EA6940052F695 /* CoreGraphics.framework in Frameworks */,
 				CE3B90A81A2EA6940052F695 /* UIKit.framework in Frameworks */,
 				CE3B90A41A2EA6940052F695 /* Foundation.framework in Frameworks */,
-				CE3B90EA1A2EA86A0052F695 /* libPFTableViewCell.a in Frameworks */,
+				CE2BECCC1A43B8230037E48A /* libPFTableViewCell.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 		CE3B90E71A2EA86A0052F695 /* PFTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CE3B90E81A2EA86A0052F695 /* libPFTableViewCell.a */,
+				CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */,
 				CE3B90E91A2EA86A0052F695 /* PFTableViewCell.h */,
 			);
 			name = PFTableViewCell;
@@ -446,6 +446,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/user/Desktop/R.M.C..M/GitHub/PFTableViewCell-Static_Library/PFTableViewCell",
+					"/Users/user/Desktop/R.M.C..M/GitHub/PFTableViewCell-Static_Library/PFTableViewCell/All",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -463,6 +464,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/user/Desktop/R.M.C..M/GitHub/PFTableViewCell-Static_Library/PFTableViewCell",
+					"/Users/user/Desktop/R.M.C..M/GitHub/PFTableViewCell-Static_Library/PFTableViewCell/All",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
