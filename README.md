@@ -15,7 +15,7 @@ cell.indexPath = indexPath;<br>
 
 运行效果展示
 --------------
-![image](https://github.com/PFei-He/PFTableViewCell/blob/master/PFTableViewCell.gif)
+![image](https://github.com/PFei-He/PFTableViewCell-Static_Library/blob/master/PFTableViewCell.gif)
 
 注意
 ------------------------------
