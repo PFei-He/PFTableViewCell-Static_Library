@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE2BECCC1A43B8230037E48A /* libPFTableViewCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */; };
+		CE2BECDC1A43D4950037E48A /* libPFTableViewCell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BECDB1A43D4950037E48A /* libPFTableViewCell.a */; };
 		CE3B90A41A2EA6940052F695 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A31A2EA6940052F695 /* Foundation.framework */; };
 		CE3B90A61A2EA6940052F695 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A51A2EA6940052F695 /* CoreGraphics.framework */; };
 		CE3B90A81A2EA6940052F695 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3B90A71A2EA6940052F695 /* UIKit.framework */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPFTableViewCell.a; path = All/libPFTableViewCell.a; sourceTree = "<group>"; };
+		CE2BECDB1A43D4950037E48A /* libPFTableViewCell.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPFTableViewCell.a; path = All/libPFTableViewCell.a; sourceTree = "<group>"; };
 		CE3B90A01A2EA6940052F695 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3B90A31A2EA6940052F695 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE3B90A51A2EA6940052F695 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,7 +78,7 @@
 				CE3B90A61A2EA6940052F695 /* CoreGraphics.framework in Frameworks */,
 				CE3B90A81A2EA6940052F695 /* UIKit.framework in Frameworks */,
 				CE3B90A41A2EA6940052F695 /* Foundation.framework in Frameworks */,
-				CE2BECCC1A43B8230037E48A /* libPFTableViewCell.a in Frameworks */,
+				CE2BECDC1A43D4950037E48A /* libPFTableViewCell.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 		CE3B90E71A2EA86A0052F695 /* PFTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CE2BECCB1A43B8230037E48A /* libPFTableViewCell.a */,
+				CE2BECDB1A43D4950037E48A /* libPFTableViewCell.a */,
 				CE3B90E91A2EA86A0052F695 /* PFTableViewCell.h */,
 			);
 			name = PFTableViewCell;
