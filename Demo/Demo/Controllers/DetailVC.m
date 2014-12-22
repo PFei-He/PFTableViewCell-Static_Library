@@ -53,6 +53,7 @@
 
     //模型
     self.detail = [[DetailModel alloc] initWithImageArray:imageArray nameArray:nameArray];
+
     //传入列表视图
     [self.detail setupTableView:tableView];
 }

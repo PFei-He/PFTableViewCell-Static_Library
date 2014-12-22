@@ -70,12 +70,12 @@
         cell.firstImageView.frame = CGRectMake(5, 15, 60, 60);
         cell.firstImageView.userInteractionEnabled = YES;
         [cell setRoundedImageView:cell.firstImageView];
-        [cell imageViewTouchUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
+        [cell imageViewTouchUsingBlock:^(NSIndexPath *indexPath, NSInteger controlIndex) {
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
 
             //浏览大图
-            [PFImageBrowser showImage:tableViewCell.firstImageView];
+            [PFImageBrowser showImage:cell.firstImageView];
         }];
     } else {
         //设置背景
@@ -86,14 +86,15 @@
         [cell.firstButton setTitle:@"更多" forState:UIControlStateNormal];
         [cell.firstButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
         @weakify_self
-        [cell buttonTouchUsingBlock:^(PFTableViewCell *tableViewCell, NSIndexPath *indexPath, NSInteger controlIndex) {
+        [cell buttonTouchUsingBlock:^(NSIndexPath *indexPath, NSInteger controlIndex) {
+            @strongify_self
             NSLog(@"One");
             NSLog(@"%d", indexPath.row);
 
             //刷新列表
             PFTableViewCellReload = YES;
             [PFTableViewCell setHeight:500 atIndexPath:indexPath];
-            [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
         }];
     }
     //设置分割线
